@@ -1,0 +1,34 @@
+.container {
+  /* display: block; */
+  /* margin: 1rem; */
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.search-nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto 8rem;
+  /* padding: 5rem; */
+}
+
+.cards > a {
+  padding: 0;
+  margin: 0 2rem;
+}
+
+.body-rest{
+  display: inline;
+  justify-content: space-between;
+  margin: 0 4rem;
+  padding: 5px;
+}

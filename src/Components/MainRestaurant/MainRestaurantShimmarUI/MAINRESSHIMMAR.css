@@ -1,0 +1,67 @@
+.container2 {
+  border-bottom: 1px dashed #d3d3d3;
+  margin: 1rem 20rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.container2 > div {
+  justify-content: space-between;
+}
+
+.left_side > div {
+  background-color: #ddd;
+  height: 1rem;
+  width: 400px;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.title_of_res {
+  height: 1.1rem !important;
+  /* width: 40% !important; */
+}
+
+.cuisines {
+  width: 60% !important;
+}
+
+.distance {
+  width: 40% !important;
+}
+
+.img {
+  border-radius: 10px;
+  height: 6rem;
+  width: 4rem;
+  background-color: #ddd;
+}
+
+.shimmar {
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: "shimmer";
+
+  animation-timing-function: linear;
+  background-size: 400px 100%;
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
