@@ -3,9 +3,11 @@ import { logo, vector } from "../../Images/index"; /* Images for UI */
 import {Link} from "react-router-dom";
 import { Body } from "../Index";
 import "./Header.css"
+import useOnline from "../../utils/useOnline";
 
 function Header () {
   const [isLoggedIn,setIsLoggedIn] = useState("true");
+  const online = useOnline()
   return (
     <>
       {/* LOGO */}
@@ -48,7 +50,7 @@ function Header () {
               <img src={vector} alt="cart" />
             </a>
           </ul>
-          <ul>{
+          <ul>{online ? "🟢" : "🔴"}{
             isLoggedIn ? 
             <button onClick={()=>setIsLoggedIn(false)}>Logout</button> 
             : <button onClick={()=>setIsLoggedIn(true)}>Login</button> 

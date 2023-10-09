@@ -3,20 +3,15 @@ import { RestaurantCard , ShimmarUI} from "../Index";
 import { SwiggyAPI_URL } from "../config.js";
 import "./Body.css"
 import { Link } from "react-router-dom";
+import { filterData } from "../../utils/helper";
+import useOnline from "../../utils/useOnline";
 
 
 function Body () {
-
-  function filterData(searchText,allRestaurants){
-    const filterData = allRestaurants.filter((allRestaurants)=>
-    allRestaurants?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase()));
-    return filterData
-  }
   
   const [allRestaurants , setAllRestaurants] = useState(0);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState(""); //useState is a function that return an array. First Element is state varible and second element is function that how we want to change the state
-// push
 
   useEffect(()=>{
     getResturants()
@@ -40,6 +35,7 @@ console.log(json);
         }
       }
       const resData = await checkJsonData(json);
+      console.log(resData);
       setAllRestaurants(resData);
       setFilteredRestaurants(resData);
 
@@ -48,7 +44,14 @@ console.log(json);
     }
   } 
 
-  return(
+  const isOnline = useOnline();
+
+  if(!isOnline){
+    <h1>🔴Sorry , please check your internet connection</h1>
+  }
+
+
+  return (
   (<>
       <div className="container">
         <div className="search-nav">
@@ -91,7 +94,7 @@ console.log(json);
        }
       </div>
     </div> 
-{    console.log(useState()) }    </>
+        </>
     ))
   }
 
