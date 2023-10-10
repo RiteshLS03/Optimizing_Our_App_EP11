@@ -1,8 +1,13 @@
-import React from "react";
+import React, { lazy , Suspense} from "react";
 import ReactDOM from "react-dom/client";
-import { Header, Footer, Body, About, Error , MainRestaurant} from "./src/Components/Index";
+import { Header, Footer, Body, About, Error , MainRestaurant, ShimmarUI} from "./src/Components/Index";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"; // First , Need to push to the repo
 import Profile from "./src/Components/profile";
+import ShimmarUI from "./src/Components/Index";
+import { ShimmarCard } from "./src/Components/ShimmarUI/ShimmarUI";
+// import Instamart from "./src/Components/Instamart";
+
+const Instamart = lazy(()=> import("./src/Components/Instamart"))
 
 function App() {
   return (
@@ -37,6 +42,17 @@ const appRouter = createBrowserRouter([
       {
         path:"/restaurant/:id",
         element: <MainRestaurant />,
+      },
+      {
+/**
+ * chunking
+ * dynamic bundling
+ * lazy loading
+ * on demand loading
+ * dynamic import
+ */
+        path:"/instamart",
+        element:<Suspense fallback={<ShimmarCard/>}><Instamart /></Suspense>
       }
     ],
   },

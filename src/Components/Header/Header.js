@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import { logo, vector } from "../../Images/index"; /* Images for UI */
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Body } from "../Index";
-import "./Header.css"
+import "./Header.css";
 import useOnline from "../../utils/useOnline";
+import Instamart from "../Instamart";
 
-function Header () {
-  const [isLoggedIn,setIsLoggedIn] = useState("true");
-  const online = useOnline()
+function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState("true");
+  const online = useOnline();
   return (
     <>
       {/* LOGO */}
       <div className="header">
-        <img className="logo" src={logo} alt="logo"> 
-        {/* <Link to="about"></Link> */}
-           </img>
-          {/* <Link to="home"/>
+        <img className="logo" src={logo} alt="logo">
+          {/* <Link to="about"></Link> */}
+        </img>
+        {/* <Link to="home"/>
         <img/> */}
         {/* SEARCHBAR  */}
         {/* <div className="search-nav">
@@ -42,26 +43,38 @@ function Header () {
         </div> */}
         {/* NAVBAR */}
         <li className="nav-items">
-          <ul><Link style={{ "textDecoration": "none", "color":"inherit" }} to="/">Home</Link> </ul>
+          <ul>
+            <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
+              Home
+            </Link>{" "}
+          </ul>
           <ul>Food</ul>
-          <ul><Link style={{ "textDecoration": "none", "color":"inherit" }} to="/about">About</Link></ul>
+          <ul>
+            <Link
+              style={{ textDecoration: "none", color: "inherit" }}
+              to="/about"
+            >
+              About
+            </Link>
+          </ul>
           <ul>
             <a href="">
               <img src={vector} alt="cart" />
             </a>
           </ul>
-          <ul>{online ? "🟢" : "🔴"}{
-            isLoggedIn ? 
-            <button onClick={()=>setIsLoggedIn(false)}>Logout</button> 
-            : <button onClick={()=>setIsLoggedIn(true)}>Login</button> 
-            }</ul>    
+          <ul>
+            {online ? "🟢" : "🔴"}
+            {isLoggedIn ? (
+              <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+            ) : (
+              <button onClick={() => setIsLoggedIn(true)}>Login</button>
+            )}
+          </ul>
+          <ul><Link to="/Instamart">Instamart</Link></ul>
         </li>
       </div>
-  </> );
+    </>
+  );
 }
 
 export default Header;
-
-
-
-
