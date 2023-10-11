@@ -50,6 +50,9 @@ const appRouter = createBrowserRouter([
  * lazy loading
  * on demand loading
  * dynamic import
+ * 
+ * 
+ * adding comment to push
  */
         path:"/instamart",
         element:<Suspense fallback={<ShimmarCard/>}><Instamart /></Suspense>
